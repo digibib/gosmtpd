@@ -44,8 +44,13 @@ func (server *MailServer) saveMail(mail *MailConnection) bool {
 	}
 	if *forwardhost != "" && *forwardport != "" {
 		if strings.Contains(mail.To, *forwardhost) {
+			log.Printf("Forwarding mail to: %v", *forwardhost)
 			forwardEmail(mail)
 		}
+	}
+	if *forwardsmtp != "" {
+		log.Printf("Forwarding smtp request to: %v", *forwardsmtp)
+		forwardSmtp(mail)
 	}
 
 	return true
