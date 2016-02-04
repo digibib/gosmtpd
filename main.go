@@ -8,9 +8,9 @@ import (
 
 	"time"
 
-	"code.google.com/p/go-uuid/uuid"
+	"github.com/pborman/uuid"
 	"github.com/zenazn/goji"
-	"gopkg.in/alecthomas/kingpin.v2"
+	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
 const timeout time.Duration = time.Duration(10)
@@ -20,8 +20,8 @@ var webport = kingpin.Flag("webport", "Port the web server should run on").Defau
 var hostname = kingpin.Flag("hostname", "Hostname for the smtp server to listen to").Default("localhost").String()
 var port = kingpin.Flag("port", "Port for the smtp server to listen to").Default("2525").String()
 
+var forwardsmtp = kingpin.Flag("forwardsmtp", "SMTP server to relay the mail to (host:port)").Default("").OverrideDefaultFromEnvar("FORWARD_SMTP").String()
 var forwardhost = kingpin.Flag("forwardhost", "The hostname after the @ that we should forward i.e. gmail.com").Default("").OverrideDefaultFromEnvar("FORWARD_HOST").String()
-var forwardsmtp = kingpin.Flag("forwardsmtp", "SMTP server to forward the mail to").Default("").OverrideDefaultFromEnvar("FORWARD_SMTP").String()
 var forwardport = kingpin.Flag("forwardport", "The port on which email should be forwarded").Default("25").OverrideDefaultFromEnvar("FORWARD_PORT").String()
 var forwarduser = kingpin.Flag("forwarduser", "The username for the forward host").Default("").OverrideDefaultFromEnvar("FORWARD_USER").String()
 var forwardpassword = kingpin.Flag("forwardpassword", "Password for the user").Default("").OverrideDefaultFromEnvar("FORWARD_PASSWORD").String()

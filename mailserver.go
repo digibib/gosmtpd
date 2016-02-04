@@ -1,11 +1,12 @@
 package main
 
 import (
-	"code.google.com/p/go-uuid/uuid"
 	"log"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/pborman/uuid"
 )
 
 type MailServer struct {
