@@ -12,18 +12,19 @@ usage: gosmtpd [<flags>]
 
 Flags:
   --help              Show help (also see --help-long and --help-man).
-  --webport="8000"    Port the web server should run on
+  --webport=WEBPORT   Port the web server should run on (Default: 8000)
   --hostname="localhost"  
                       Hostname for the smtp server to listen to
   --port="2525"       Port for the smtp server to listen to
-  --forwardhost=FORWARDHOST  
+  --forwardhost=FORWARD_HOST
                       The hostname after the @ that we should forward i.e. gmail.com
-  --forwardsmtp=FORWARDSMTP  
+  --forwardsmtp=FORWARD_SMTP
                       SMTP server to forward the mail to
-  --forwardport="25"  The port on which email should be forwarded
-  --forwarduser=FORWARDUSER  
+  --forwardport=FORWARD_PORT
+                      The port on which email should be forwarded (Default: 25)
+  --forwarduser=FORWARD_USER
                       The username for the forward host
-  --forwardpassword=FORWARDPASSWORD  
+  --forwardpassword=FORWARD_PASSWORD
                       Password for the user
   --mailexpiration=300  
                       Time in seconds for a mail to expire, and be removed from database
