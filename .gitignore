@@ -33,3 +33,4 @@ gosmtpd
 
 build/*
 !build/PLACEHOLDER
+.vagrant
