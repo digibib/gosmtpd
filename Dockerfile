@@ -1,7 +1,8 @@
-FROM ubuntu:14.04 
+FROM alpine:3.3
 MAINTAINER Soren Mathiasen <sorenm@mymessages.dk>
+WORKDIR /app
+COPY ./build/app /app/gosmtpd
 
-ADD gosmtpd /
 EXPOSE 2525
 EXPOSE 8080
-CMD ["/gosmtpd"]
+CMD ["/app/gosmtpd"]
