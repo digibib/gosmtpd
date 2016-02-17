@@ -30,3 +30,6 @@ _testmain.go
 .idea
 gosmtpd.iml
 gosmtpd
+
+build/*
+!build/PLACEHOLDER
